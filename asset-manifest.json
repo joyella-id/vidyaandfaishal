@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/einvite/static/css/main.df49bcf9.css",
+    "main.js": "/einvite/static/js/main.209c5359.js",
+    "static/js/27.07ddfad5.chunk.js": "/einvite/static/js/27.07ddfad5.chunk.js",
+    "static/media/cover.gif": "/einvite/static/media/cover.f7b405ba2bb69fa75f06.gif",
+    "static/media/bgm2.mp3": "/einvite/static/media/bgm2.9d10448b7f893cedd0ed.mp3",
+    "static/media/bgm.mp3": "/einvite/static/media/bgm.8495236d2aebf35c6b19.mp3",
+    "static/media/2.jpeg": "/einvite/static/media/2.6e27db0149f2b489b8aa.jpeg",
+    "static/media/7.jpeg": "/einvite/static/media/7.2271ce43e447fd6f8478.jpeg",
+    "static/media/4.jpeg": "/einvite/static/media/4.d0d75b7accbcd5325b98.jpeg",
+    "static/media/flower1.svg": "/einvite/static/media/flower1.830f45c74ca818e807ce711c4fccc6d9.svg",
+    "static/media/3.jpeg": "/einvite/static/media/3.f072cecb0485b65f0003.jpeg",
+    "static/media/vidya.jpeg": "/einvite/static/media/vidya.2078cc0d44cbcdbe7f8f.jpeg",
+    "static/media/5.jpeg": "/einvite/static/media/5.e6aaca900b8fa129cda8.jpeg",
+    "static/media/1.jpeg": "/einvite/static/media/1.5080dc4bf8d991bc8d57.jpeg",
+    "static/media/6.jpeg": "/einvite/static/media/6.91f1561713e968b74f90.jpeg",
+    "static/media/8.jpeg": "/einvite/static/media/8.e2d278f007abcee36fa4.jpeg",
+    "static/media/9.jpeg": "/einvite/static/media/9.78b3f6ab45836136c67b.jpeg",
+    "static/media/faishal.jpeg": "/einvite/static/media/faishal.4de9370b7ffc1eb048af.jpeg",
+    "index.html": "/einvite/index.html",
+    "static/media/temperature.svg": "/einvite/static/media/temperature.264492d4b6b20d87b457212a46d4bf30.svg",
+    "static/media/washhand.svg": "/einvite/static/media/washhand.bd50680e63db0c4237125ca215871395.svg",
+    "static/media/distance.svg": "/einvite/static/media/distance.bb4bfacc544db722c1db2a6412a013f8.svg",
+    "static/media/joyella.svg": "/einvite/static/media/joyella.2c24af76ac485f6557083c9c7eafabcb.svg",
+    "static/media/joyellaWhatsapp.svg": "/einvite/static/media/joyellaWhatsapp.4ee67d9c07cc41b666dd488675ff1a2e.svg",
+    "static/media/mask.svg": "/einvite/static/media/mask.49876082e0aea4b4daa39dfb1f6ae1b5.svg",
+    "static/media/joyellaInstagram.svg": "/einvite/static/media/joyellaInstagram.bb195ed6413c76c89fd4211336f50c08.svg",
+    "static/media/musicIcon.svg": "/einvite/static/media/musicIcon.ca49072d47c7f4c44dde1709dcc1a389.svg"
+  },
+  "entrypoints": [
+    "static/css/main.df49bcf9.css",
+    "static/js/main.209c5359.js"
+  ]
+}
