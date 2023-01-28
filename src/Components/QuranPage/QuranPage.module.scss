@@ -1,0 +1,38 @@
+.container {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  align-items: center;
+  // height: 100vh;
+  margin-top: 4rem;
+  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
+  @media (max-width: 480px) {
+    height: calc(100vh - 57px);
+  }
+}
+
+.arabic {
+  line-height: 3rem;
+}
+
+.latin {
+  line-height: 2rem;
+}
+
+.surahContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.line {
+  display: inline;
+  height: 1px;
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
+  width: 1rem;
+  background: #f2f2f2;
+}

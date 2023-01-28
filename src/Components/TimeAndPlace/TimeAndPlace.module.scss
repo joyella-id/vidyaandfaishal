@@ -1,0 +1,22 @@
+.container {
+  padding: 6rem 3rem;
+  color: #f2f2f2;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.countdownContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.singleCountdown {
+  color: #393939;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+  width: 30%;
+  border-radius: 1rem;
+  height: 7rem;
+}

@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  width: 100%;
+  position: relative;
+  gap: 4rem;
+}
+
+.imagesContainer {
+  display: flex;
+  overflow: auto;
+  height: 65%;
+  width: 100%;
+  gap: 1.5rem;
+}
+
+.image {
+  height: 100%;
+  > img {
+    border-radius: 1rem;
+    height: calc(100% - 5px);
+  }
+}
+
+.joyellaContainer {
+  width: 20%;
+  > img {
+    width: 100%;
+  }
+  > div {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: calc(100% - 3px);
+    img {
+      width: 2rem;
+      cursor: pointer;
+    }
+  }
+}

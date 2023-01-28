@@ -1,0 +1,30 @@
+.withAnimation {
+  transition: 0.3s;
+}
+
+.container {
+  &:focus {
+    outline: none;
+  }
+}
+
+.hide {
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  box-shadow: 0px 0px 0px #e0dddd;
+}
+
+.show {
+  overflow-y: auto;
+}
+
+.noScroll {
+  overflow-y: unset;
+}
+
+.reserveSpace {
+  opacity: 1;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
