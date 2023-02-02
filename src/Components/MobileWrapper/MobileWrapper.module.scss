@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .container {
   display: flex;
   justify-content: center;
@@ -5,12 +7,12 @@
 }
 
 .childrenContainer {
-  width: 480px;
+  width: $breakpoint-tablet;
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   overflow-y: auto;
   overflow-x: hidden;
-  @media (max-width: 480px) {
+  @media (max-width: $breakpoint-tablet) {
     box-sizing: border-box;
     width: 100%;
   }

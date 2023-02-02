@@ -36,6 +36,9 @@
   }
 }
 
+$breakpoint-tablet: 600px;
+$breakpoint-mobile: 480px;
+
 :root {
   --toastify-color-light: #f2f2f2 !important;
   --toastify-color-dark: #393939 !important;
