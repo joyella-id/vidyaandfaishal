@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/vidyaandfaishal/static/css/main.35346c53.css",
-    "main.js": "/vidyaandfaishal/static/js/main.173dd51a.js",
+    "main.css": "/vidyaandfaishal/static/css/main.98fcd38a.css",
+    "main.js": "/vidyaandfaishal/static/js/main.60983c4f.js",
     "static/js/27.07ddfad5.chunk.js": "/vidyaandfaishal/static/js/27.07ddfad5.chunk.js",
     "static/media/cover.gif": "/vidyaandfaishal/static/media/cover.f7b405ba2bb69fa75f06.gif",
     "static/media/bgm2.mp3": "/vidyaandfaishal/static/media/bgm2.9d10448b7f893cedd0ed.mp3",
@@ -29,7 +29,7 @@
     "static/media/musicIcon.svg": "/vidyaandfaishal/static/media/musicIcon.ca49072d47c7f4c44dde1709dcc1a389.svg"
   },
   "entrypoints": [
-    "static/css/main.35346c53.css",
-    "static/js/main.173dd51a.js"
+    "static/css/main.98fcd38a.css",
+    "static/js/main.60983c4f.js"
   ]
 }
