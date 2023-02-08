@@ -4,6 +4,7 @@ import { AppContext } from "../../Utils/context";
 import Flower from "../Flower";
 import { useQuery } from "../../Utils/url";
 import css from "./FirstPage.module.scss";
+import coverGif from "../../Images/cover.gif";
 import VidyaAndFaishal from "./VidyaAndFaishal";
 
 type FirstPagePropTypes = {
@@ -21,37 +22,38 @@ const FirstPage: React.FC<FirstPagePropTypes> = ({
   const name = (query.get("name") || "Yang Bersangkutan")?.toUpperCase();
 
   return (
-    <div style={{ ...style }} className={css.container}>
+    <div style={{ ...style }} className={`position-relative ${css.container}`}>
       <div className={css.imageContainer}>
-        {/* <div className={css.videoOverlay}></div>
-        <video id="coverVideo" autoPlay playsInline muted loop>
-          <source src={coverVideo} type="video/mp4" />
-        </video> */}
+        <div>
+          <img src={coverGif} alt="cover" />
+        </div>
+        <div className={css.imageOverlay}></div>
       </div>
-      <div className={css.greyBackground1}>
-        <div className={css.textPosition}>
-          <div className="basic-text-shadow-3 font-family-bodoni-moda font-size-15 margin--xlarge-b font-base-white font-letter-spacing-3">
-            THE WEDDING OF
-          </div>
-          <div className="position-relative overflow-hidden">
-            <Flower
-              style={{
-                width: "40%",
-                position: "fixed",
-                right: "-15%",
-                bottom: "0rem",
-              }}
-            />
-            <Flower
-              style={{
-                width: "40%",
-                position: "fixed",
-                left: "-15%",
-                bottom: "0rem",
-              }}
-            />
-            <VidyaAndFaishal />
-          </div>
+      <div className={css.pushDownContainer}></div>
+      <div className={css.textPosition}>
+        <div className="basic-text-shadow-3 font-family-bodoni-moda font-size-15 margin--xlarge-b font-base-white font-letter-spacing-3 z-index-1 position-relative">
+          THE WEDDING OF
+        </div>
+        <div className="position-relative overflow-hidden">
+          <Flower
+            style={{
+              zIndex: "1",
+              width: "150px",
+              position: "absolute",
+              right: "-7%",
+              bottom: "0.75rem",
+            }}
+          />
+          <Flower
+            style={{
+              zIndex: "1",
+              width: "150px",
+              position: "absolute",
+              left: "-7%",
+              bottom: "0.75rem",
+            }}
+          />
+          <VidyaAndFaishal />
         </div>
       </div>
       <div
@@ -64,10 +66,11 @@ const FirstPage: React.FC<FirstPagePropTypes> = ({
       </div>
       <div className={css.greyBackground2}>
         <Button
-          // loading={audioLoading}
           width="80%"
           text={`${alreadyOpened ? "LIHAT" : "BUKA"} UNDANGAN`}
-          onClick={onClickCta}
+          onClick={() => {
+            onClickCta();
+          }}
         />
       </div>
     </div>

@@ -5,7 +5,7 @@ import css from "./Button.module.scss";
 
 type ButtonPropTypes = {
   text: string;
-  onClick: () => void;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
   variant?: "black" | "white";
   width?: string;
   disabled?: boolean;
