@@ -76,7 +76,7 @@ const TimeAndPlace = () => {
         <div className="margin--xxlarge-b">
           <div className={titleClassname}>GRAHA SAMUDRA BUMIMORO</div>
           <div className={"font-size-15 font-letter-spacing-2"}>
-            Kobangdikal, Jl. Moro Krembangan, Morokrembangan, Kec. Krembangan,
+            Kodiklatal, Jl. Moro Krembangan, Morokrembangan, Kec. Krembangan,
             Kota SBY, Jawa Timur 60178
           </div>
         </div>
