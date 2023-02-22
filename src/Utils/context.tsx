@@ -6,6 +6,7 @@ export const AppContext = createContext({
   style: {},
   styleStatic: {},
   firstRenderHeight: 0,
+  windowWidth: 0,
 });
 
 type AppContextProviderPropTypes = {
@@ -16,7 +17,7 @@ export const AppContextProvider: React.FC<AppContextProviderPropTypes> = ({
   children,
 }) => {
   const [firstRenderHeight, setFirstRenderHeight] = useState(0);
-  const { height: windowHeight } = useWindowSize();
+  const { height: windowHeight, width: windowWidth } = useWindowSize();
 
   useEffect(() => {
     setFirstRenderHeight(windowHeight || 0);
@@ -29,6 +30,7 @@ export const AppContextProvider: React.FC<AppContextProviderPropTypes> = ({
         height: windowHeight || 0,
         style: { height: `${windowHeight}px`, transition: "0.2s" },
         styleStatic: { height: `${firstRenderHeight}px`, transition: "0.2s" },
+        windowWidth: windowWidth || 0,
       }}
     >
       {children}

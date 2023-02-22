@@ -5,8 +5,9 @@ import Reservation from "../../Components/Reservation";
 import { getRecords } from "../../Utils/airtable";
 import QuranPage from "../../Components/QuranPage";
 import BrideAndGroom from "../../Components/BrideAndGroom";
-import Gallery from "../../Components/Gallery";
+import Gallery from "../../Components/Galleryv2";
 import Prayers from "../../Components/Prayers";
+import { playMusic } from "../../Components/AudioControl";
 import TimeAndPlace from "../../Components/TimeAndPlace";
 import AudioControl from "../../Components/AudioControl";
 import { SinglePrayerType } from "../../Utils/types";
@@ -59,6 +60,7 @@ const Home = () => {
         <FirstPage
           alreadyOpened={showFull}
           onClickCta={() => {
+            playMusic();
             if (showFull) {
               scrollToQuran();
             } else {

@@ -1,0 +1,31 @@
+@import "../../App.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  width: 100%;
+  position: relative;
+  // gap: 1rem;
+}
+
+.joyellaContainer {
+  width: 20%;
+  padding-bottom: 2rem;
+  > img {
+    width: 100%;
+  }
+  > div {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: calc(100% - 3px);
+    img {
+      width: 2rem;
+      cursor: pointer;
+    }
+  }
+}

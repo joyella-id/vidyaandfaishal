@@ -12,6 +12,14 @@ type AudioControlPropTypes = {
 
 const bgms = [bgm, bgm2];
 
+const getBgm = () => {
+  return document.getElementById("backgroundMusic") as HTMLAudioElement;
+};
+
+export const playMusic = () => {
+  getBgm().play();
+};
+
 const AudioControl: React.FC<AudioControlPropTypes> = ({ loading = false }) => {
   const query = useQuery();
   const bgmIndex = Number(query.get("bgm") || "1");
@@ -49,10 +57,6 @@ const AudioControl: React.FC<AudioControlPropTypes> = ({ loading = false }) => {
       setIsPlaying(false);
     };
   }
-
-  const getBgm = () => {
-    return document.getElementById("backgroundMusic") as HTMLAudioElement;
-  };
 
   const playMusicOnScroll = () => {
     if (getBgm().currentTime <= 0) {
