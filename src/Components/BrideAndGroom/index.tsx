@@ -7,11 +7,17 @@ import photoFaishal from "../../Images/faishal.jpeg";
 import css from "./BrideAndGroom.module.scss";
 
 type PersonPropTypes = {
+  childIndex: number;
   fullName: string;
   gender: string;
   father: string;
   mother: string;
   photo: string;
+};
+
+const childIndexMap: Record<string, string> = {
+  1: "Pertama",
+  2: "Kedua",
 };
 
 const genderMap: Record<string, string> = {
@@ -39,6 +45,7 @@ const Person: React.FC<PersonPropTypes> = ({
   father,
   mother,
   photo,
+  childIndex,
 }) => {
   return (
     <div className={`position-relative ${css.personContainer}`}>
@@ -47,7 +54,6 @@ const Person: React.FC<PersonPropTypes> = ({
         style={{
           position: "absolute",
           top: "10%",
-          // top: `${Math.floor(Math.random() * 50)}%`,
           [flowerPositionMap[gender]]: "50%",
         }}
       />
@@ -55,14 +61,15 @@ const Person: React.FC<PersonPropTypes> = ({
       <div className="z-index-1 font-family-neuton font-size-20 font-letter-spacing-1 font-weight-medium">
         {fullName?.toUpperCase()}
       </div>
-      <div className="z-index-1 font-family-neuton font-letter-spacing-1 font-size-18">
-        {genderMap?.[gender]} dari
+      <div className="z-index-1 font-family-neuton font-letter-spacing-1 font-size-16">
+        {genderMap?.[gender]?.toUpperCase()}{" "}
+        {childIndexMap?.[childIndex]?.toUpperCase()} DARI
       </div>
-      <div className="z-index-1 font-family-neuton font-letter-spacing-1 font-size-18">
+      <div className="z-index-1 font-family-neuton font-letter-spacing-1 font-size-16">
         {father}
       </div>
-      <div className="z-index-1 font-family-neuton font-letter-spacing-1 font-size-18">
-        dan {mother}
+      <div className="z-index-1 font-family-neuton font-letter-spacing-1 font-size-16">
+        & {mother}
       </div>
     </div>
   );
@@ -78,10 +85,11 @@ const BrideAndGroom = () => {
       <InvitationText />
       <div className="margin--xxlarge-b">
         <Person
-          fullName="Vidya Pitaloka M.M."
+          childIndex={1}
+          fullName="VIDYA PITALOKA M.M."
           gender="f"
-          father="Bpk. Kolonel Laut (T) Suryaman S.T."
-          mother="Ibu Rr. Nyda Nidia Restina"
+          father="BAPAK LAKSMA LAUT (T) SURYAMAN, S.T."
+          mother="IBU RR. N. NIDIA R."
           photo={photoVidya}
         />
       </div>
@@ -92,10 +100,11 @@ const BrideAndGroom = () => {
       </div>
       <div className="margin--xxxxxlarge-b">
         <Person
-          fullName="Faishal Abdur Rahman S.T."
+          childIndex={2}
+          fullName="FAISHAL ABDUR RAHMAN S.T."
           gender="m"
-          father="Bpk. Ir. Mohamad Tantowi Mustofa"
-          mother="Ibu Maratus Sholichah"
+          father="BAPAK IR. MOHAMAD TANTOWI MUSTOFA"
+          mother="IBU MARATUS SOLICHAH"
           photo={photoFaishal}
         />
       </div>

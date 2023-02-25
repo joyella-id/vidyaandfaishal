@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AppContext } from "../../Utils/context";
 import { useContext } from "react";
 import image1 from "../../Images/gallery/1.jpeg";
@@ -15,6 +15,8 @@ import Flower from "../Flower";
 import joyella from "../../Images/joyella.svg";
 import instagram from "../../Images/joyellaInstagram.svg";
 import whatsapp from "../../Images/joyellaWhatsapp.svg";
+import ScrollButton from "./ScrollButton";
+import { useMobile } from "../../Utils/common";
 
 const galleryImages = [
   image1,
@@ -29,7 +31,49 @@ const galleryImages = [
 ];
 
 const Gallery = () => {
+  const isMobile = useMobile();
   const { firstRenderHeight } = useContext(AppContext);
+  const [galleryContainerScrollLeft, setGalleryContainerScrollLeft] =
+    useState(0);
+  const [hoverRightScroll, setHoverRightScroll] = useState(false);
+  const [hoverLeftScroll, setHoverLeftScroll] = useState(false);
+
+  const getGalleryContainerElement = () => {
+    return document.getElementById("galleryContainer");
+  };
+
+  const galleryContainerElement = getGalleryContainerElement();
+
+  useEffect(() => {
+    const galleryContainerElement = getGalleryContainerElement();
+    if (hoverRightScroll && galleryContainerElement) {
+      const maxScrollLeft =
+        galleryContainerElement.scrollWidth -
+        galleryContainerElement.clientWidth;
+
+      if (galleryContainerScrollLeft < maxScrollLeft) {
+        setTimeout(() => {
+          setGalleryContainerScrollLeft((prev) => prev + 1);
+        }, 1);
+      }
+    }
+  }, [hoverRightScroll, galleryContainerScrollLeft]);
+
+  useEffect(() => {
+    const galleryContainerElement = getGalleryContainerElement();
+    if (hoverLeftScroll && galleryContainerElement) {
+      if (galleryContainerScrollLeft > 0) {
+        setTimeout(() => {
+          setGalleryContainerScrollLeft((prev) => prev - 1);
+        }, 1);
+      }
+    }
+  }, [hoverLeftScroll, galleryContainerScrollLeft]);
+
+  if (galleryContainerElement) {
+    galleryContainerElement.scrollLeft = galleryContainerScrollLeft;
+  }
+
   return (
     <>
       <div
@@ -54,12 +98,26 @@ const Gallery = () => {
             zIndex: "0",
           }}
         />
-        <div className={`z-index-1 ${css.imagesContainer}`}>
+        <div
+          onScroll={(e) => {
+            if (!isMobile) {
+              setGalleryContainerScrollLeft(e.currentTarget.scrollLeft);
+            }
+          }}
+          id="galleryContainer"
+          className={`z-index-1 ${css.imagesContainer}`}
+        >
+          {!isMobile && (
+            <ScrollButton setHover={setHoverLeftScroll} variant="left" />
+          )}
           {galleryImages.map((image, i) => (
             <div className={css.image} key={i}>
               <img src={image} alt={`${i}`} />
             </div>
           ))}
+          {!isMobile && (
+            <ScrollButton setHover={setHoverRightScroll} variant="right" />
+          )}
         </div>
         <div className={css.joyellaContainer}>
           <img src={joyella} alt="joyella" />

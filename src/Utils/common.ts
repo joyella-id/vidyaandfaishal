@@ -35,6 +35,10 @@ export function useTablet() {
   return (useWindowSize()?.width || 0) <= 600;
 }
 
+export function useNotDesktop() {
+  return (useWindowSize()?.width || 0) <= 900;
+}
+
 export function useCustomScreenSize(size: number) {
   return (useWindowSize()?.width || 0) <= size;
 }
@@ -115,7 +119,11 @@ export const useTimer = ({ endDate }: UserTimerParameter) => {
   return timeLeft;
 };
 
-export function useDebounce(val: string, delay: number, callback?: () => void) {
+export function useDebounce(
+  val: string | number,
+  delay: number,
+  callback?: () => void
+) {
   const [debouncedVal, setDebouncedVal] = useState(val);
   useEffect(() => {
     const timeOutHandler = setTimeout(() => {
@@ -133,3 +141,29 @@ export function useDebounce(val: string, delay: number, callback?: () => void) {
 
   return debouncedVal;
 }
+
+export const useRepeatedClick = ({
+  clickRequired,
+  cb,
+  duration,
+}: {
+  clickRequired: number;
+  cb: () => void;
+  duration: number;
+}) => {
+  const [clicked, setClicked] = useState(0);
+  useDebounce(`${clicked}`, duration, () => {
+    setClicked(0);
+  });
+
+  useEffect(() => {
+    if (clicked >= clickRequired) {
+      cb();
+    }
+  }, [clicked]);
+  const click = () => {
+    setClicked((prev) => prev + 1);
+  };
+
+  return { click };
+};

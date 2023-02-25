@@ -1,5 +1,5 @@
-import React from "react";
-import { useGyroscope } from "../../Utils/gyroscope";
+import React, { useContext } from "react";
+import { GyroscopeContext } from "../../Utils/context";
 import Loader from "../Loader";
 import css from "./Button.module.scss";
 
@@ -25,9 +25,8 @@ const Button: React.FC<ButtonPropTypes> = ({
   width = "100%",
   loading = false,
 }) => {
-  const { supported, backgroundPositionX, backgroundPositionY } = useGyroscope({
-    useVerticalAxis: true,
-  });
+  const { supported, backgroundPositionX, backgroundPositionY } =
+    useContext(GyroscopeContext);
   const supportAccelerometer = supported;
   return (
     <button
