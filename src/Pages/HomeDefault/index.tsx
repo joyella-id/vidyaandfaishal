@@ -8,6 +8,8 @@ import BrideAndGroom from "../../Components/BrideAndGroom";
 import Gallery from "../../Components/Galleryv2";
 import Prayers from "../../Components/Prayers";
 import { playMusic } from "../../Components/AudioControl";
+import { useQuery } from "../../Utils/url";
+import { renderDebugInfos } from "../../Utils/debug";
 import TimeAndPlace from "../../Components/TimeAndPlace";
 import AudioControl from "../../Components/AudioControl";
 import { SinglePrayerType } from "../../Utils/types";
@@ -15,12 +17,12 @@ import { SinglePrayerType } from "../../Utils/types";
 const Home = () => {
   const [showFull, setShowFull] = useState(false);
   const [prayers, setPrayers] = useState<SinglePrayerType[]>([]);
+  const query = useQuery();
+  const debugMode = !!query.get("debugmode");
 
   const bgmElement = document.getElementById(
     "backgroundMusic"
   ) as HTMLAudioElement;
-
-  const isAudioLoading = bgmElement?.readyState !== 4;
 
   const getPrayers = () => {
     getRecords()
@@ -55,8 +57,9 @@ const Home = () => {
 
   return (
     <>
-      <AudioControl loading={isAudioLoading} />
+      <AudioControl />
       <MobileWrapper>
+        {renderDebugInfos(debugMode, [bgmElement?.readyState])}
         <FirstPage
           alreadyOpened={showFull}
           onClickCta={() => {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useRepeatedClick } from "./common";
 
 type UseGyroscopeParam = {
   useVerticalAxis: boolean;
@@ -83,6 +84,16 @@ export const useGyroscope = ({ useVerticalAxis }: UseGyroscopeParam) => {
     return supportAccelerometer ? `${accelerometerX}%` : undefined;
   };
 
+  const { click: clickToAskPermission } = useRepeatedClick({
+    clickRequired: 7,
+    cb: () => {
+      if (!allowed) {
+        askPermission();
+      }
+    },
+    duration: 1000,
+  });
+
   return {
     gamma: accelerometerData?.gamma,
     beta: accelerometerData?.beta,
@@ -95,5 +106,6 @@ export const useGyroscope = ({ useVerticalAxis }: UseGyroscopeParam) => {
       : undefined,
     askPermission,
     allowed,
+    clickToAskPermission,
   };
 };

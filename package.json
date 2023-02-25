@@ -56,6 +56,6 @@
   "homepage": "https://einvite.joyella.id/vidyaandfaishal",
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "prettier": "2.8.4"
+    "prettier": "^2.8.4"
   }
 }

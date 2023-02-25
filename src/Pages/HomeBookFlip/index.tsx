@@ -19,12 +19,6 @@ const Home = () => {
   const [prayers, setPrayers] = useState<SinglePrayerType[]>([]);
   const contextData = useContext(AppContext);
 
-  const bgmElement = document.getElementById(
-    "backgroundMusic"
-  ) as HTMLAudioElement;
-
-  const isAudioLoading = bgmElement?.readyState !== 4;
-
   const getPrayers = () => {
     getRecords()
       .then((res) => {
@@ -41,7 +35,7 @@ const Home = () => {
 
   return (
     <>
-      <AudioControl loading={isAudioLoading} />
+      <AudioControl />
       <MobileWrapper>
         <BookFlipContainer
           style={{ maxWidth: "600px", zIndex: "3" }}

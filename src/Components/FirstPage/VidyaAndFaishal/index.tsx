@@ -1,31 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { GyroscopeContext } from "../../../Utils/context";
 import css from "../FirstPage.module.scss";
-import { useDebounce } from "../../../Utils/common";
-import { useGyroscope } from "../../../Utils/gyroscope";
+import { useQuery } from "../../../Utils/url";
 
 const VidyaAndFaishal = () => {
-  const [clicked, setClicked] = useState(0);
+  const query = useQuery();
+  const debugMode = !!query.get("debugmode");
+
   const {
     supported,
     backgroundPositionX,
     backgroundPositionY,
-    askPermission,
     allowed,
-  } = useGyroscope({ useVerticalAxis: true });
-
-  useDebounce(`${clicked}`, 1000, () => {
-    setClicked(0);
-  });
-
-  useEffect(() => {
-    if (clicked >= 7 && !allowed) {
-      askPermission();
-    }
-  }, [clicked]);
+    clickToAskPermission,
+  } = useContext(GyroscopeContext);
 
   const supportAccelerometer = supported;
+
   return (
     <>
+      {debugMode && (
+        <div
+          style={{ color: "white" }}
+        >{`${supported},${allowed},${backgroundPositionX},${backgroundPositionY}`}</div>
+      )}
       <div
         id="animated-text"
         style={{
@@ -37,7 +35,7 @@ const VidyaAndFaishal = () => {
           !supportAccelerometer ? css.textShine : css.textGradient
         }`}
         onClick={() => {
-          setClicked((prev) => prev + 1);
+          clickToAskPermission();
         }}
       >
         <div className="font-size-56 margin--medium-b">Vidya</div>

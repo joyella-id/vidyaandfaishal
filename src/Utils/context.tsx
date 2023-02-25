@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
+import { useGyroscope } from "./gyroscope";
 import { useWindowSize } from "./common";
 
 export const AppContext = createContext({
@@ -9,11 +10,11 @@ export const AppContext = createContext({
   windowWidth: 0,
 });
 
-type AppContextProviderPropTypes = {
+type ContextProviderProps = {
   children: ReactNode;
 };
 
-export const AppContextProvider: React.FC<AppContextProviderPropTypes> = ({
+export const AppContextProvider: React.FC<ContextProviderProps> = ({
   children,
 }) => {
   const [firstRenderHeight, setFirstRenderHeight] = useState(0);
@@ -35,5 +36,42 @@ export const AppContextProvider: React.FC<AppContextProviderPropTypes> = ({
     >
       {children}
     </AppContext.Provider>
+  );
+};
+
+type GyroscopeContextType = {
+  gamma: number | null | undefined;
+  beta: number | null | undefined;
+  x: number;
+  y: number;
+  supported: boolean;
+  backgroundPositionX: string | undefined;
+  backgroundPositionY: string | undefined;
+  askPermission: () => void;
+  allowed: boolean;
+  clickToAskPermission: () => void;
+};
+
+export const GyroscopeContext = createContext<GyroscopeContextType>({
+  gamma: 0,
+  beta: 0,
+  x: 0,
+  y: 0,
+  supported: false,
+  backgroundPositionX: "0%",
+  backgroundPositionY: "0%",
+  askPermission: () => null,
+  allowed: false,
+  clickToAskPermission: () => null,
+});
+
+export const GyroscopeContextProvider: React.FC<ContextProviderProps> = ({
+  children,
+}) => {
+  const gyroscopeDatas = useGyroscope({ useVerticalAxis: true });
+  return (
+    <GyroscopeContext.Provider value={gyroscopeDatas}>
+      {children}
+    </GyroscopeContext.Provider>
   );
 };
