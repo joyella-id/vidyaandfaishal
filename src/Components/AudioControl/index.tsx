@@ -21,7 +21,11 @@ export const playMusic = (cb?: () => void) => {
 };
 
 const AudioControl: React.FC = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState({
+    isLoading: true,
+    count: 0,
+    readyState: 0,
+  });
   const query = useQuery();
   const bgmIndex = Number(query.get("bgm") || "1");
   const debugMode = !!query.get("debugmode");
@@ -30,9 +34,15 @@ const AudioControl: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    if (loading) {
+    if (loading.isLoading) {
       setTimeout(() => {
-        setLoading(getBgm()?.readyState !== 4);
+        const readyState = getBgm()?.readyState;
+        setLoading((prev) => ({
+          isLoading: readyState !== 4,
+          count: prev.count + 1,
+          readyState,
+        }));
+        console.log(readyState);
       }, 500);
     }
   }, [loading]);
@@ -97,7 +107,7 @@ const AudioControl: React.FC = () => {
       <div
         className={css.container}
         onClick={() => {
-          if (!loading) {
+          if (!loading.isLoading) {
             if (isPlaying) {
               bgmElement.pause();
             } else {
@@ -106,8 +116,12 @@ const AudioControl: React.FC = () => {
           }
         }}
       >
-        {renderDebugInfos(debugMode, [loading])}
-        {loading ? (
+        {renderDebugInfos(debugMode, [
+          loading.isLoading,
+          loading.count,
+          loading.readyState,
+        ])}
+        {loading.isLoading ? (
           <Loader />
         ) : (
           <>
