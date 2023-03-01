@@ -85,7 +85,7 @@ export const useGyroscope = ({ useVerticalAxis }: UseGyroscopeParam) => {
   };
 
   const { click: clickToAskPermission } = useRepeatedClick({
-    clickRequired: 7,
+    clickRequired: 3,
     cb: () => {
       if (!allowed) {
         askPermission();
