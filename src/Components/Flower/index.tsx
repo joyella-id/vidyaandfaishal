@@ -16,7 +16,6 @@ const Flower: React.FC<FlowerPropTypes> = ({
   const isBlack = variant === "black";
   return (
     <img
-      loading="lazy"
       fetchpriority="low"
       className={isBlack ? css.black : css.white}
       style={{ opacity, zIndex: "0", ...style }}
