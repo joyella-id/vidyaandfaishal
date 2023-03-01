@@ -11,7 +11,7 @@ const CarouselGallery: React.FC<CarouselGalleryPropTypes> = ({ images }) => {
     width: 0,
     height: 0,
   });
-  const [renderedImage, setRenderedImage] = useState(0);
+  const [renderedImage, setRenderedImage] = useState(-1);
 
   useEffect(() => {
     const galleryPage = document.getElementById("galleryPage");
@@ -29,7 +29,10 @@ const CarouselGallery: React.FC<CarouselGalleryPropTypes> = ({ images }) => {
 
   return (
     <div className={css.galleryContainer}>
-      <RotatingPhoto image={images[renderedImage]} />
+      <RotatingPhoto
+        image={images[renderedImage]}
+        changeImage={(index) => setRenderedImage(index)}
+      />
       <div
         className="position-relative"
         style={{

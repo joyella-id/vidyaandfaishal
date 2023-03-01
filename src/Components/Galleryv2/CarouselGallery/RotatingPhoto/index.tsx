@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GyroscopeContext } from "../../../../Utils/context";
 import { useQuery } from "../../../../Utils/url";
 import { useNotDesktop } from "../../../../Utils/common";
@@ -8,6 +8,7 @@ import css from "./RotatingPhoto.module.scss";
 
 type RotatingPhotoPropTypes = {
   image: string;
+  changeImage?: (index: number) => void;
 };
 
 const maxAccelerometerAngle = 30;
@@ -36,7 +37,18 @@ const defineXandYRation = (
   return { xRatio, yRatio };
 };
 
-const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({ image }) => {
+const getRotateTriggerElement = () => {
+  return document.getElementById("rotateTrigger");
+};
+
+const getRenderedPhotoRect = () => {
+  return document.getElementById("renderedPhoto")?.getClientRects()?.[0];
+};
+
+const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({
+  image,
+  changeImage,
+}) => {
   const query = useQuery();
   const debugMode = !!query.get("debugmode");
   const isNotDesktop = useNotDesktop();
@@ -47,9 +59,25 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({ image }) => {
     xWhenActivated: 0,
     yWhenActivated: 0,
   });
-  const getRenderedPhotoRect = () => {
-    return document.getElementById("renderedPhoto")?.getClientRects()?.[0];
-  };
+
+  const rotateTriggerElement = getRotateTriggerElement();
+  if (rotateTriggerElement) {
+    const rotateTriggerElementRect =
+      rotateTriggerElement?.getBoundingClientRect();
+    const width = rotateTriggerElementRect?.width || 0;
+    const height = rotateTriggerElementRect?.height || 0;
+    const aspectRatio = width / height;
+    if (aspectRatio > 1) {
+      rotateTriggerElement.style.width = `${height}px`;
+      rotateTriggerElement.style.margin = "auto";
+    }
+  }
+
+  useEffect(() => {
+    if (changeImage) {
+      changeImage(0);
+    }
+  }, []);
 
   const {
     supported: supportAccelerometer,
@@ -166,6 +194,7 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({ image }) => {
   return (
     <>
       <div
+        id="rotateTrigger"
         onClick={() => {
           setRotate3d((prev) => {
             if (prev.rotate) {

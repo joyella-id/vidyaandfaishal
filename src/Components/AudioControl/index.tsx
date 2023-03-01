@@ -42,14 +42,11 @@ const AudioControl: React.FC = () => {
           count: prev.count + 1,
           readyState,
         }));
-        console.log(readyState);
       }, 500);
     }
   }, [loading]);
 
-  const bgmElement = document.getElementById(
-    "backgroundMusic"
-  ) as HTMLAudioElement;
+  const bgmElement = getBgm();
 
   if (bgmElement) {
     bgmElement.onplay = () => {
@@ -109,9 +106,16 @@ const AudioControl: React.FC = () => {
         onClick={() => {
           if (!loading.isLoading) {
             if (isPlaying) {
-              bgmElement.pause();
+              getBgm().pause();
             } else {
-              bgmElement.play();
+              getBgm()
+                .play()
+                .then(() => {
+                  console.log("success play");
+                })
+                .catch((e) => {
+                  console.log("error play", e);
+                });
             }
           }
         }}
