@@ -88,7 +88,7 @@ const BrideAndGroom = () => {
           childIndex={1}
           fullName="VIDYA PITALOKA M.M."
           gender="f"
-          father="BAPAK LAKSMA LAUT (T) SURYAMAN, S.T."
+          father="BAPAK LAKSMA TNI SURYAMAN, S.T."
           mother="IBU RR. N. NIDIA R."
           photo={photoVidya}
         />
