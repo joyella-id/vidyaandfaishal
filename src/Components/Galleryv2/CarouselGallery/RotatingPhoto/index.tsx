@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { GyroscopeContext } from "../../../../Utils/context";
+import { AppContext } from "../../../../Utils/context";
 import { useQuery } from "../../../../Utils/url";
 import { useNotDesktop } from "../../../../Utils/common";
 import { renderDebugInfos } from "../../../../Utils/debug";
@@ -60,24 +61,28 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({
     yWhenActivated: 0,
   });
 
-  const rotateTriggerElement = getRotateTriggerElement();
-  if (rotateTriggerElement) {
-    const rotateTriggerElementRect =
-      rotateTriggerElement?.getBoundingClientRect();
-    const width = rotateTriggerElementRect?.width || 0;
-    const height = rotateTriggerElementRect?.height || 0;
-    const aspectRatio = width / height;
-    if (aspectRatio > 1) {
-      rotateTriggerElement.style.width = `${height}px`;
-      rotateTriggerElement.style.margin = "auto";
-    }
-  }
-
   useEffect(() => {
     if (changeImage) {
-      changeImage(0);
+      setTimeout(() => {
+        changeImage(0);
+      }, 100);
     }
   }, []);
+
+  useEffect(() => {
+    const rotateTriggerElement = getRotateTriggerElement();
+    if (rotateTriggerElement) {
+      const rotateTriggerElementRect =
+        rotateTriggerElement?.getBoundingClientRect();
+      const width = rotateTriggerElementRect?.width || 0;
+      const height = rotateTriggerElementRect?.height || 0;
+      const aspectRatio = width / height;
+      if (aspectRatio > 1) {
+        rotateTriggerElement.style.width = `${height}px`;
+        rotateTriggerElement.style.margin = "auto";
+      }
+    }
+  }, [image]);
 
   const {
     supported: supportAccelerometer,
@@ -219,7 +224,7 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({
         >
           <img src={image} alt={`${image}`} />
           <div className={`font-family-neuton ${css.cta}`}>
-            {rotateAble && (isNotDesktop ? "Click Me!" : "Hover Me!")}
+            {rotateAble && (supportAccelerometer ? "Click Me!" : "Hover Me!")}
           </div>
           <div
             {...handleRotateByAccelerometer.shineOverlay}
@@ -232,18 +237,17 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({
         </div>
       </div>
       {renderDebugInfos(debugMode, [
-        supportAccelerometer,
-        allowed,
+        `supportaccelerometer: ${supportAccelerometer}`,
+        `allowed: ${allowed}`,
+        `rotateable:${rotateAble}`,
+        `isDesktop:${isDesktop}`,
         "accelerometerAngle",
-        JSON.stringify(rotate3d),
-        xAxis,
-        yAxis,
+        // JSON.stringify(rotate3d),
+        `${xAxis}, ${yAxis}`,
         "photoangle",
-        rotatePhotoAccelerometerAngle.x,
-        rotatePhotoAccelerometerAngle.y,
+        `${rotatePhotoAccelerometerAngle.x}, ${rotatePhotoAccelerometerAngle.y}`,
         "overlay",
-        shineOverlayAccelerometerAngle.x,
-        shineOverlayAccelerometerAngle.y,
+        `${shineOverlayAccelerometerAngle.x}, ${shineOverlayAccelerometerAngle.y}`,
       ])}
     </>
   );

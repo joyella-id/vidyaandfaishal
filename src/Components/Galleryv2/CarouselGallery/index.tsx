@@ -30,7 +30,7 @@ const CarouselGallery: React.FC<CarouselGalleryPropTypes> = ({ images }) => {
   return (
     <div className={css.galleryContainer}>
       <RotatingPhoto
-        image={images[renderedImage]}
+        image={images[renderedImage] || images[images.length - 1]}
         changeImage={(index) => setRenderedImage(index)}
       />
       <div

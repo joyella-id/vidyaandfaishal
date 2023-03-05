@@ -8,6 +8,8 @@ export const AppContext = createContext({
   styleStatic: {},
   firstRenderHeight: 0,
   windowWidth: 0,
+  isLandscape: false,
+  isPortrait: false,
 });
 
 type ContextProviderProps = {
@@ -32,6 +34,8 @@ export const AppContextProvider: React.FC<ContextProviderProps> = ({
         style: { height: `${windowHeight}px`, transition: "0.2s" },
         styleStatic: { height: `${firstRenderHeight}px`, transition: "0.2s" },
         windowWidth: windowWidth || 0,
+        isLandscape: (windowHeight || 0) < (windowWidth || 0),
+        isPortrait: (windowHeight || 0) > (windowWidth || 0),
       }}
     >
       {children}
@@ -50,6 +54,8 @@ type GyroscopeContextType = {
   askPermission: () => void;
   allowed: boolean;
   clickToAskPermission: () => void;
+  isLandscape: boolean;
+  isPortrait: boolean;
 };
 
 export const GyroscopeContext = createContext<GyroscopeContextType>({
@@ -63,6 +69,8 @@ export const GyroscopeContext = createContext<GyroscopeContextType>({
   askPermission: () => null,
   allowed: false,
   clickToAskPermission: () => null,
+  isLandscape: false,
+  isPortrait: false,
 });
 
 export const GyroscopeContextProvider: React.FC<ContextProviderProps> = ({

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useWindowSize } from "./common";
 import { useRepeatedClick } from "./common";
 
 type UseGyroscopeParam = {
@@ -7,6 +8,7 @@ type UseGyroscopeParam = {
 
 export const useGyroscope = ({ useVerticalAxis }: UseGyroscopeParam) => {
   const [allowed, setAllowed] = useState(false);
+  const { height: windowHeight, width: windowWidth } = useWindowSize();
 
   const deviceOrientationExist = typeof DeviceOrientationEvent !== "undefined";
 
@@ -94,11 +96,14 @@ export const useGyroscope = ({ useVerticalAxis }: UseGyroscopeParam) => {
     duration: 1000,
   });
 
+  const isLandscape = (windowHeight || 0) < (windowWidth || 0);
+  const isPortrait = (windowHeight || 0) > (windowWidth || 0);
+
   return {
     gamma: accelerometerData?.gamma,
     beta: accelerometerData?.beta,
-    x: accelerometerX,
-    y: accelerometerY,
+    x: isLandscape ? accelerometerY : accelerometerX,
+    y: isLandscape ? accelerometerX : accelerometerY,
     supported: supportAccelerometer,
     backgroundPositionX: defineBackgroundPositionX(),
     backgroundPositionY: supportAccelerometer
@@ -107,5 +112,7 @@ export const useGyroscope = ({ useVerticalAxis }: UseGyroscopeParam) => {
     askPermission,
     allowed,
     clickToAskPermission,
+    isLandscape,
+    isPortrait,
   };
 };
