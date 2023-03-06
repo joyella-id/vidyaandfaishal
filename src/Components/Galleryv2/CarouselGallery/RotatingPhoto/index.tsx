@@ -62,14 +62,6 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({
   });
 
   useEffect(() => {
-    if (changeImage) {
-      setTimeout(() => {
-        changeImage(0);
-      }, 100);
-    }
-  }, []);
-
-  useEffect(() => {
     const rotateTriggerElement = getRotateTriggerElement();
     if (rotateTriggerElement) {
       const rotateTriggerElementRect =
@@ -196,21 +188,40 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({
       : { style: {} },
   };
 
+  const toggleRotate3d = () => {
+    setRotate3d((prev) => {
+      if (prev.rotate) {
+        return { ...prev, rotate: false };
+      }
+      return {
+        rotate: true,
+        xWhenActivated: xAxis,
+        yWhenActivated: yAxis,
+      };
+    });
+  };
+
+  useEffect(() => {
+    if (changeImage) {
+      setTimeout(() => {
+        changeImage(0);
+      }, 100);
+    }
+    setRotate3d({
+      rotate: true,
+      xWhenActivated: xAxis,
+      yWhenActivated: yAxis,
+    });
+  }, []);
+
   return (
     <>
       <div
         id="rotateTrigger"
         onClick={() => {
-          setRotate3d((prev) => {
-            if (prev.rotate) {
-              return { ...prev, rotate: false };
-            }
-            return {
-              rotate: true,
-              xWhenActivated: xAxis,
-              yWhenActivated: yAxis,
-            };
-          });
+          if (allowed) {
+            toggleRotate3d();
+          }
         }}
         className={css.rotateTrigger}
         {...(supportAccelerometer
@@ -224,7 +235,12 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({
         >
           <img src={image} alt={`${image}`} />
           <div className={`font-family-neuton ${css.cta}`}>
-            {rotateAble && (supportAccelerometer ? "Click Me!" : "Hover Me!")}
+            {rotateAble &&
+              (supportAccelerometer
+                ? rotate3d.rotate
+                  ? "Putar Hapemu!"
+                  : "Klik foto ini!"
+                : "Hover Me!")}
           </div>
           <div
             {...handleRotateByAccelerometer.shineOverlay}
@@ -241,8 +257,8 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({
         `allowed: ${allowed}`,
         `rotateable:${rotateAble}`,
         `isDesktop:${isDesktop}`,
+        `rotate3d:${JSON.stringify(rotate3d)}`,
         "accelerometerAngle",
-        // JSON.stringify(rotate3d),
         `${xAxis}, ${yAxis}`,
         "photoangle",
         `${rotatePhotoAccelerometerAngle.x}, ${rotatePhotoAccelerometerAngle.y}`,

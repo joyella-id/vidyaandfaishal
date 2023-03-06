@@ -44,6 +44,7 @@ const Gallery = () => {
       />
       <CarouselGallery images={galleryImages} />
       <div className={css.joyellaContainer}>
+        <div className="font-family-bodoni-moda font-size-11">Made By</div>
         <img src={joyella} alt="joyella" />
         <div>
           <a
