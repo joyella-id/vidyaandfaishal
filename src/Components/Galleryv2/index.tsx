@@ -48,7 +48,7 @@ const Gallery = () => {
         <img src={joyella} alt="joyella" />
         <div>
           <a
-            href={`https://wa.me/6281336255090?text=%F0%9F%92%90%20Joyella%20E-Invitation%20%F0%9F%92%90%20Halo%20Joyella%2C%20apa%20bisa%20tanya%20tanya%20%26%20pesan%20e-invitation%3F%20%0A%0ABerikut%20data%20diri%20saya%0ANama%20%3D%0ANama%20akun%20ig%20%3D%0AKeperluan%20Acara%20%3D%20%28Wedding%2FEngagement%2FBirthday%2Flainnya%29%0A`}
+            href={`https://wa.me/6287815917683?text=%F0%9F%92%90%20Joyella%20E-Invitation%20%F0%9F%92%90%20Halo%20Joyella%2C%20apa%20bisa%20tanya%20tanya%20%26%20pesan%20e-invitation%3F%20%0A%0ABerikut%20data%20diri%20saya%0ANama%20%3D%0ANama%20akun%20ig%20%3D%0AKeperluan%20Acara%20%3D%20%28Wedding%2FEngagement%2FBirthday%2Flainnya%29%0A`}
             target="_blank"
             rel="noreferrer"
           >
