@@ -1,10 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { GyroscopeContext } from "../../../../Utils/context";
-import { AppContext } from "../../../../Utils/context";
 import { useQuery } from "../../../../Utils/url";
 import { useNotDesktop } from "../../../../Utils/common";
 import { renderDebugInfos } from "../../../../Utils/debug";
-import paperTexture from "../../../../Images/white-paper-texture.jpg";
 import css from "./RotatingPhoto.module.scss";
 
 type RotatingPhotoPropTypes = {
@@ -91,7 +89,7 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({
     rgba(255, 255, 255, .35) 25%,
     rgba(255, 255, 255, .1) 50%,
     rgba(0, 0, 0, .5) 75%`;
-  const shineGradientOpacity = "1";
+  const shineGradientOpacity = "0.3";
 
   const notDesktopAndNotSupportAccelerometer =
     !supportAccelerometer && isNotDesktop;
@@ -247,9 +245,6 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({
             id="shineOverlay"
             className={css.shineOverlay}
           ></div>
-          <div className={css.paperTexture}>
-            <img src={paperTexture} alt="paperTexture" />
-          </div>
         </div>
       </div>
       {renderDebugInfos(debugMode, [
