@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/vidyaandfaishal/static/css/main.50d14958.css",
-    "main.js": "/vidyaandfaishal/static/js/main.d75a23cf.js",
+    "main.js": "/vidyaandfaishal/static/js/main.af069b96.js",
     "static/js/27.07ddfad5.chunk.js": "/vidyaandfaishal/static/js/27.07ddfad5.chunk.js",
     "static/media/cover.gif": "/vidyaandfaishal/static/media/cover.f7b405ba2bb69fa75f06.gif",
     "static/media/bgm2.mp3": "/vidyaandfaishal/static/media/bgm2.9d10448b7f893cedd0ed.mp3",
@@ -42,6 +42,6 @@
   },
   "entrypoints": [
     "static/css/main.50d14958.css",
-    "static/js/main.d75a23cf.js"
+    "static/js/main.af069b96.js"
   ]
 }
