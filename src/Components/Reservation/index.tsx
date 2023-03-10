@@ -240,7 +240,8 @@ const Reservation: React.FC<ReservationPropTypes> = ({
             text="KIRIM"
             variant="white"
             onClick={() => {
-              if (name && willCome?.value) {
+              const nameTrimmed = name?.trim();
+              if (nameTrimmed && willCome?.value) {
                 if (isComing) {
                   if (peopleAmount.value) {
                     const payload = {
