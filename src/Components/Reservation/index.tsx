@@ -241,14 +241,15 @@ const Reservation: React.FC<ReservationPropTypes> = ({
             variant="white"
             onClick={() => {
               const nameTrimmed = name?.trim();
+              const prayerTrimmed = prayer?.trim();
               if (nameTrimmed && willCome?.value) {
                 if (isComing) {
                   if (peopleAmount.value) {
                     const payload = {
-                      Name: name,
+                      Name: nameTrimmed,
                       Coming: true,
                       Amount: Number(peopleAmount.value),
-                      Prayer: prayer,
+                      Prayer: prayerTrimmed,
                     };
 
                     submitToAirtable(payload);
@@ -258,10 +259,10 @@ const Reservation: React.FC<ReservationPropTypes> = ({
                   }
                 } else if (notComing) {
                   const payload = {
-                    Name: name,
+                    Name: nameTrimmed,
                     Coming: false,
                     Amount: 0,
-                    Prayer: prayer,
+                    Prayer: prayerTrimmed,
                   };
 
                   submitToAirtable(payload);

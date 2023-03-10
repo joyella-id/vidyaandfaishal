@@ -31,7 +31,7 @@ const Home = () => {
           name: r?.fields?.Name as string,
           prayer: r?.fields?.Prayer as string,
         }));
-        setPrayers(prayersData?.filter((prayer) => !!prayer?.prayer));
+        setPrayers(prayersData?.filter((prayer) => !!prayer?.prayer?.trim()));
       })
       .catch((e) => {
         console.error(e);

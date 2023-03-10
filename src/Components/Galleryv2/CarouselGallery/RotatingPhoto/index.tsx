@@ -238,7 +238,7 @@ const RotatingPhoto: React.FC<RotatingPhotoPropTypes> = ({
             {rotateAble &&
               (supportAccelerometer
                 ? rotate3d.rotate
-                  ? "Putar Hapemu!"
+                  ? "Miringkan Hapemu!"
                   : "Klik foto ini!"
                 : "Hover Me!")}
           </div>
