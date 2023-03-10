@@ -54,13 +54,6 @@ const Gallery = () => {
           >
             <img src={whatsapp} alt="whatsapp" />
           </a>
-          <a
-            href={`https://www.instagram.com/joyella.id/`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={instagram} alt="instagram" />
-          </a>
         </div>
       </div>
     </div>
