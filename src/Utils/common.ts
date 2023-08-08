@@ -99,6 +99,9 @@ export const useTimer = ({ endDate }: UserTimerParameter) => {
   if (timeLeft.asMilliseconds() < 0) {
     return {
       ...timeLeft,
+      asDays: () => {
+        return 0;
+      },
       asMilliseconds: () => {
         return 0;
       },
