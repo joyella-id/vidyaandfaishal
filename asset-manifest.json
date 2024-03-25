@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/vidyaandfaishal/static/css/main.50d14958.css",
-    "main.js": "/vidyaandfaishal/static/js/main.f1aa19f7.js",
+    "main.css": "/vidyaandfaishal/static/css/main.87edb752.css",
+    "main.js": "/vidyaandfaishal/static/js/main.3f192234.js",
     "static/js/27.07ddfad5.chunk.js": "/vidyaandfaishal/static/js/27.07ddfad5.chunk.js",
     "static/media/cover.gif": "/vidyaandfaishal/static/media/cover.f7b405ba2bb69fa75f06.gif",
     "static/media/bgm2.mp3": "/vidyaandfaishal/static/media/bgm2.9d10448b7f893cedd0ed.mp3",
     "static/media/bgm.mp3": "/vidyaandfaishal/static/media/bgm.8495236d2aebf35c6b19.mp3",
     "static/media/vidya.jpeg": "/vidyaandfaishal/static/media/vidya.9e97ddd9530796b82877.jpeg",
     "static/media/faishal.jpeg": "/vidyaandfaishal/static/media/faishal.de6f8050d8731001f005.jpeg",
-    "static/media/flower1.svg": "/vidyaandfaishal/static/media/flower1.27cf74a4d259ef7ed4e14300225f0d1b.svg",
+    "static/media/flower1.svg": "/vidyaandfaishal/static/media/flower1.830f45c74ca818e807ce711c4fccc6d9.svg",
     "static/media/19.jpeg": "/vidyaandfaishal/static/media/19.650eb7cbda131ac2ec15.jpeg",
     "static/media/17.jpeg": "/vidyaandfaishal/static/media/17.122f69dc4771ff8c77a2.jpeg",
     "static/media/16.jpeg": "/vidyaandfaishal/static/media/16.11aef61b00b2a348574d.jpeg",
@@ -29,18 +29,18 @@
     "static/media/8.jpeg": "/vidyaandfaishal/static/media/8.15578528adbbd48e65bf.jpeg",
     "static/media/12.jpeg": "/vidyaandfaishal/static/media/12.6c42fd500e15b797bb65.jpeg",
     "index.html": "/vidyaandfaishal/index.html",
-    "static/media/temperature.svg": "/vidyaandfaishal/static/media/temperature.8df96c3f0b4281b737d2b742cab46bf3.svg",
-    "static/media/washhand.svg": "/vidyaandfaishal/static/media/washhand.03aa226c6c56400f8975cecb6810c0bf.svg",
-    "static/media/distance.svg": "/vidyaandfaishal/static/media/distance.9ffff031586225266852e71fb33279b4.svg",
-    "static/media/joyella.svg": "/vidyaandfaishal/static/media/joyella.bbd77625213df9854f267ccf4d813a0c.svg",
-    "static/media/joyellaWhatsapp.svg": "/vidyaandfaishal/static/media/joyellaWhatsapp.141e9dc1f38e5410c0601e111d9b1f77.svg",
-    "static/media/mask.svg": "/vidyaandfaishal/static/media/mask.6af573cffe9bf4b401811e8701916c2e.svg",
-    "static/media/joyellaInstagram.svg": "/vidyaandfaishal/static/media/joyellaInstagram.6dfe192e94bf970a75da074510b9d144.svg",
+    "static/media/temperature.svg": "/vidyaandfaishal/static/media/temperature.264492d4b6b20d87b457212a46d4bf30.svg",
+    "static/media/washhand.svg": "/vidyaandfaishal/static/media/washhand.bd50680e63db0c4237125ca215871395.svg",
+    "static/media/distance.svg": "/vidyaandfaishal/static/media/distance.bb4bfacc544db722c1db2a6412a013f8.svg",
+    "static/media/joyella.svg": "/vidyaandfaishal/static/media/joyella.2c24af76ac485f6557083c9c7eafabcb.svg",
+    "static/media/joyellaWhatsapp.svg": "/vidyaandfaishal/static/media/joyellaWhatsapp.4ee67d9c07cc41b666dd488675ff1a2e.svg",
+    "static/media/mask.svg": "/vidyaandfaishal/static/media/mask.49876082e0aea4b4daa39dfb1f6ae1b5.svg",
+    "static/media/joyellaInstagram.svg": "/vidyaandfaishal/static/media/joyellaInstagram.bb195ed6413c76c89fd4211336f50c08.svg",
     "static/media/chevron.svg": "/vidyaandfaishal/static/media/chevron.195c07f2ec5629213cd2f9c86086ad24.svg",
-    "static/media/musicIcon.svg": "/vidyaandfaishal/static/media/musicIcon.31de8c140cfee958606349f50eb83430.svg"
+    "static/media/musicIcon.svg": "/vidyaandfaishal/static/media/musicIcon.ca49072d47c7f4c44dde1709dcc1a389.svg"
   },
   "entrypoints": [
-    "static/css/main.50d14958.css",
-    "static/js/main.f1aa19f7.js"
+    "static/css/main.87edb752.css",
+    "static/js/main.3f192234.js"
   ]
 }
