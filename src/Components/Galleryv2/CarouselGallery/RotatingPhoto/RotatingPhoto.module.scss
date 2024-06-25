@@ -1,0 +1,55 @@
+.shownImage {
+  transform-style: preserve-3d;
+  height: 100%;
+  display: block;
+  padding: 5% 5% 5% 5%;
+  background: #f2f2f2;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+
+  > img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+  }
+
+  > .cta {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+  }
+}
+
+.rotateTrigger {
+  transform-style: preserve-3d;
+  height: 50%;
+  flex-grow: 1;
+}
+
+.shineOverlay {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.3s;
+  mix-blend-mode: soft-light;
+}
+
+.paperTexture {
+  opacity: 0.25;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.2s;
+  mix-blend-mode: darken;
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+}

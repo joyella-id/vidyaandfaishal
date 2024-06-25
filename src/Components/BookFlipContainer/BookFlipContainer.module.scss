@@ -1,0 +1,38 @@
+.book {
+  overflow: hidden;
+  perspective: 1200px;
+
+  &__page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    transform: rotateY(0deg);
+    transform-origin: 0% 0%;
+
+    &--2 {
+      position: absolute;
+      right: 0;
+      transform-style: preserve-3d;
+    }
+
+    &-front {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: rotateY(0deg) translateZ(1px);
+      overflow-x: hidden;
+    }
+
+    &-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: rotateY(180deg) translateZ(1px);
+    }
+  }
+
+  .show.book__page {
+    transform: rotateY(-90deg);
+  }
+}

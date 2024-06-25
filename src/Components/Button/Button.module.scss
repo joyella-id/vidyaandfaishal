@@ -1,0 +1,80 @@
+@keyframes shine {
+  to {
+    background-position: right;
+  }
+}
+
+@-webkit-keyframes shine {
+  to {
+    background-position: right;
+  }
+}
+
+.button {
+  z-index: 1;
+  cursor: pointer;
+  outline: none;
+  padding: 2px;
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  background-position: left;
+  > div {
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    transition: 0.2s;
+  }
+}
+
+.black {
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+.white {
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.withAccelerometer {
+  background: linear-gradient(130deg, #bb9837 35%, #fffbca 50%, #bb9837 65%);
+  background-size: 300%;
+  &:hover {
+    > div {
+      transition: 0.2s;
+      opacity: 0.9;
+    }
+  }
+}
+
+.withoutAccelerometer {
+  background: linear-gradient(130deg, #bb9837 35%, #fffbca 50%, #bb9837 65%);
+  background-size: 300%;
+  &:hover {
+    animation: shine 2s infinite;
+    -webkit-animation: shine 2s infinite;
+    -moz-animation: shine 2s infinite;
+    -o-animation: shine 2s infinite;
+    > div {
+      transition: 0.2s;
+      opacity: 0.9;
+    }
+  }
+}
+
+.black {
+  > div {
+    background-color: #393939;
+  }
+}
+
+.white {
+  > div {
+    background-color: #f2f2f2;
+  }
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+}

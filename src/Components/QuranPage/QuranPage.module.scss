@@ -1,0 +1,35 @@
+@import "../../App.scss";
+
+.container {
+  padding: 1rem 3rem 6rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  align-items: center;
+  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
+}
+
+.arabic {
+  line-height: 3rem;
+}
+
+.latin {
+  line-height: 2rem;
+}
+
+.surahContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.line {
+  display: inline;
+  height: 1px;
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
+  width: 1rem;
+  background: #f2f2f2;
+}
