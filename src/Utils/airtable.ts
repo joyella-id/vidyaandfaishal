@@ -1,8 +1,8 @@
 import Airtable from "airtable";
 
-export const apikey = process.env.REACT_APP_AIRTABLE_API_KEY;
+export const apikey = process.env.REACT_APP_AIRTABLE_API_KEY || "";
 export const getRecords = () => {
-  console.log(process.env)
+  console.log(process.env);
   const base = new Airtable({ apiKey: apikey }).base(
     process.env.REACT_APP_AIRTABLE_BASE_ID || ""
   );
