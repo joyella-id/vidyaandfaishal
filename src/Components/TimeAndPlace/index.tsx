@@ -44,7 +44,7 @@ const TimeAndPlace = () => {
 
   const titleClassname = "margin--small-b font-size-24 font-letter-spacing-2";
   const subtitleClassname = "font-size-18 font-letter-spacing-2";
-
+  console.log('test')
   return (
     <div
       className={`position-relative z-index-1 ${css.container}`}
