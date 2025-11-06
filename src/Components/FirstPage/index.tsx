@@ -4,7 +4,8 @@ import { AppContext } from "../../Utils/context";
 import Flower from "../Flower";
 import { useQuery } from "../../Utils/url";
 import css from "./FirstPage.module.scss";
-import coverGif from "../../Images/cover.gif";
+import coverPoster from "../../Images/cover-poster.png";
+import coverVideo from "../../Images/cover.mp4";
 import VidyaAndFaishal from "./VidyaAndFaishal";
 
 type FirstPagePropTypes = {
@@ -25,7 +26,16 @@ const FirstPage: React.FC<FirstPagePropTypes> = ({
     <div style={{ ...style }} className={`position-relative ${css.container}`}>
       <div className={css.imageContainer}>
         <div>
-          <img src={coverGif} alt="cover" />
+          {/* <img src={coverGif} alt="cover" /> */}
+          <video
+            poster={coverPoster}
+            src={coverVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            disablePictureInPicture
+          />
         </div>
         <div className={css.imageOverlay}></div>
       </div>
