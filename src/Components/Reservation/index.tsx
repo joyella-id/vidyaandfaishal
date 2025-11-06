@@ -5,9 +5,7 @@ import { useCheckOverflow } from "../../Utils/common";
 import Button from "../Button";
 import { AppContext } from "../../Utils/context";
 import css from "./Reservation.module.scss";
-import { CreateRecordPayload } from "../../Utils/airtable";
 import { showToast, showPromiseToast } from "../../Utils/toast";
-import { createRecord } from "../../Utils/airtable";
 import Flower from "../Flower";
 
 type ReservationPropTypes = {
@@ -82,10 +80,10 @@ const Reservation: React.FC<ReservationPropTypes> = ({
     });
   };
 
-  const submitToAirtable = (payload: CreateRecordPayload) => {
+  const submitToAirtable = (payload: any) => {
     setIsLoading(true);
     showPromiseToast({
-      promiseFunction: createRecord(payload),
+      promiseFunction: new Promise<any>((resolve) => resolve([])),
       pending: "Loading...",
       success: "Terima kasih atas konfirmasinya 🙏",
       error: "Terjadi kesalahan, silahkan coba kembali",

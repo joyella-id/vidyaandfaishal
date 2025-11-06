@@ -33,24 +33,27 @@ const Prayers: React.FC<PrayersPropTypes> = ({ prayers }) => {
       {prayers?.length > 0 && (
         <>
           <div className="margin--large-b margin--xlarge-t font-family-neuton font-size-18 font-letter-spacing-2 font-base-white font-align-justify">
-            Sebuah kebahagian yang sangat dalam bagi kami apabila
-            Bapak/Ibu/ Saudara/i semua turut mendoakan pada hari bahagia kami.
+            Sebuah kebahagian yang sangat dalam bagi kami apabila Bapak/Ibu/
+            Saudara/i semua turut mendoakan pada hari bahagia kami.
           </div>
           <div className={css.prayersContainer}>
             {prayers?.map((prayer, i) => {
               const prayersLength = prayers?.length;
               const isLast = i + 1 === prayersLength;
+              if (!prayer?.wishes) {
+                return null;
+              }
               return (
                 <div
                   className={`${!isLast ? "margin--large-b" : ""} ${
                     css.singlePrayer
                   }`}
-                  key={`${prayer?.prayer}${i}`}
+                  key={`${prayer?.wishes}${i}`}
                 >
                   <div className="font-size-15 font-weight-medium margin--xsmall-b">
                     {prayer?.name}
                   </div>
-                  <div>{prayer?.prayer}</div>
+                  <div>{prayer?.wishes}</div>
                 </div>
               );
             })}
@@ -60,8 +63,8 @@ const Prayers: React.FC<PrayersPropTypes> = ({ prayers }) => {
       )}
       <div className="font-base-white margin--xxxlarge-t font-align-justify font-letter-spacing-2 font-family-neuton font-size-18">
         Dengan tidak mengurangi rasa hormat kami, untuk menjaga kesehatan kita
-        semua serta tetap mengikuti protokol kesehatan. Semoga kita semua senantiasa diberikan kesehatan & kebahagiaan,
-        Amin.
+        semua serta tetap mengikuti protokol kesehatan. Semoga kita semua
+        senantiasa diberikan kesehatan & kebahagiaan, Amin.
       </div>
       <div className={css.covidCautionContainer}>
         {cautionIcons?.map((icon) => (

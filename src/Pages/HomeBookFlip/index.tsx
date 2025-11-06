@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MobileWrapper from "../../Components/MobileWrapper";
 import FirstPage from "../../Components/FirstPage";
 import Reservation from "../../Components/Reservation";
-import { getRecords } from "../../Utils/airtable";
 import QuranPage from "../../Components/QuranPage";
 import BrideAndGroom from "../../Components/BrideAndGroom";
 import Gallery from "../../Components/Gallery";
@@ -12,25 +11,15 @@ import { AppContext } from "../../Utils/context";
 import { useContext } from "react";
 import AudioControl from "../../Components/AudioControl";
 import BookFlipContainer from "../../Components/BookFlipContainer";
-import { SinglePrayerType } from "../../Utils/types";
+import { wishes } from "../../constant";
 
 const Home = () => {
   const [showFull, setShowFull] = useState(false);
-  const [prayers, setPrayers] = useState<SinglePrayerType[]>([]);
+  const prayers = wishes;
   const contextData = useContext(AppContext);
 
   const getPrayers = () => {
-    getRecords()
-      .then((res) => {
-        const prayersData = res?.map((r) => ({
-          name: r?.fields?.Name as string,
-          prayer: r?.fields?.Prayer as string,
-        }));
-        setPrayers(prayersData?.filter((prayer) => !!prayer?.prayer));
-      })
-      .catch((e) => {
-        console.error(e);
-      });
+    return null;
   };
 
   return (

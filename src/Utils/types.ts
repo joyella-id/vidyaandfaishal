@@ -1,15 +1,7 @@
 export type SinglePrayerType = {
   name: string;
-  prayer: string;
+  wishes?: string;
+  attendanceCount: string;
+  created_at: string;
+  willAttend?: string;
 };
-
-export type RecordsFromAirtable = {
-  id: string;
-  fields: {
-    Name: string;
-    Prayer: string;
-    Amount: number;
-    CreatedAt: string;
-    Coming: boolean;
-  };
-}[];
