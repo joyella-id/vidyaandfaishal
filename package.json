@@ -58,7 +58,6 @@
     "cross-env": "^7.0.3",
     "prettier": "^2.8.4"
   },
-  "homepage": "https://joyella-id.github.io/vidyaandfaishal/",
   "engines": {
     "node": ">=20.0.0"
   }
