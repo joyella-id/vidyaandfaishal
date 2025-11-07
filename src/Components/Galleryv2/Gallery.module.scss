@@ -10,24 +10,40 @@
   position: relative;
 }
 
-.joyellaContainer {
-  width: 20%;
-  padding-bottom: 2rem;
-  > img {
-    width: 100%;
+.footer {
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.circleIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  width: 45px;
+  background-color: #d2ac47;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: #e6bf53;
   }
-  > :nth-child(1) {
-    text-align: center;
-  }
-  > :nth-child(3) {
-    margin-top: 0.5rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: calc(100% - 3px);
-    img {
-      width: 2rem;
-      cursor: pointer;
-    }
-  }
+}
+
+.divider {
+  height: 50%;
+  width: 2px;
+  background-color: #202020;
 }
